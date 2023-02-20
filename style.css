@@ -1,0 +1,65 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    background-color: #e7f1f1;
+    border-radius: 15px;
+}
+
+.numbers-section {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.numbers-row {
+    display: flex;
+    gap: 15px;
+    margin: 15px 15px 15px 15px;
+}
+
+.typing-section {
+    border: 0px solid black;
+    height: 150px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.delete-symbol {
+    margin-right: 40px;
+}
+
+button {
+    width: 100px;
+    height: 100px;
+    font-size: 40px;
+    color: #4d5252;
+    border-radius: 50%;
+    border: 0px;
+    background-color: #bbd9db;
+}
+
+.equal {
+    background-color: #418a86;
+    color: #e7f1f1;
+}
+.clear {
+    color: #b3554f;
+}
+
+button:hover {
+    font-size: 35px;
+    background-color: #93b0b2;
+    
+}
+
+.line {
+    width: 85%;
+}
