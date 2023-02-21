@@ -2,6 +2,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0;
+    height: 100%;
 }
 
 
@@ -10,6 +12,7 @@ body {
     flex-direction: column;
     background-color: #e7f1f1;
     border-radius: 15px;
+    /* width: 700px; */
 }
 
 .numbers-section {
@@ -34,6 +37,9 @@ body {
 
 .delete-symbol {
     margin-right: 40px;
+    width: 40px;
+    height: auto;
+
 }
 
 button {
@@ -62,4 +68,7 @@ button:hover {
 
 .line {
     width: 85%;
+    margin: 0px auto;
+    color: #bbd9db;
+    opacity: 50%;
 }
