@@ -31,11 +31,13 @@ function operate(operator, num1, num2) {
     }
 }
 
+function handleClick(e) {
+    lastDigit = e.target.innerText;
+        display.innerText += e.target.innerText;
+}
 const display = document.querySelector(".display");
 
 const buttons = document.querySelectorAll("button");
 buttons.forEach((element) => {
-    element.addEventListener('click', (e) => {
-        display.innerText += e.target.innerText;
-    });
+    element.addEventListener('click', handleClick);
 });
