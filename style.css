@@ -1,16 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Yantramanav&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0;
     height: 100%;
+
 }
 
 
 .calculator {
     display: flex;
     flex-direction: column;
-    background-color: #e7f1f1;
+    background-color: #ECF2F2;
     border-radius: 15px;
     /* width: 700px; */
 }
@@ -18,38 +25,50 @@ body {
 .numbers-section {
     display: flex;
     flex-direction: column;
-
+    gap: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .numbers-row {
     display: flex;
     gap: 15px;
-    margin: 15px 15px 15px 15px;
+    margin: 0px 15px 0px 15px;
+}
+
+.display {
+    display: flex;
+    flex-direction: column;
+}
+
+.last-result {
+    height: 5rem;
 }
 
 .typing-section {
     border: 0px solid black;
-    height: 150px;
+    height: 8rem;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    gap: 15px;
 }
 
 .delete-symbol {
-    margin-right: 40px;
+    margin-right: 25px;
     width: 40px;
     height: auto;
 
 }
 
 button {
-    width: 100px;
-    height: 100px;
+    width: 5rem;
+    height: 5rem;
     font-size: 40px;
-    color: #4d5252;
+    color: #2C6761;
     border-radius: 50%;
     border: 0px;
-    background-color: #bbd9db;
+    background-color: #D9EBED;
 }
 
 .equal {
@@ -57,7 +76,7 @@ button {
     color: #e7f1f1;
 }
 .clear {
-    color: #b3554f;
+    color: #DB332A;
 }
 
 button:hover {
@@ -69,6 +88,6 @@ button:hover {
 .line {
     width: 85%;
     margin: 0px auto;
-    color: #bbd9db;
+    color: #D9DFDF;
     opacity: 50%;
 }
