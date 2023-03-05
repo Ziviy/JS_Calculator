@@ -1,9 +1,11 @@
 function add(num1, num2) {
-    if (num1 == 0)
+    if (lastResult != 0)
         num1 = lastResult;
+    console.log("NUM1 is " + num1 + " NUM2 is " + num2);
     lastResult = parseInt(num1) + parseInt(num2);
     console.log("Sum is " + lastResult);
     refreshDisplay();
+
 }
 
 function substract(num1, num2) {
@@ -19,10 +21,10 @@ function divide(num1, num2) {
 }
 
 function operate(operator, num1, num2) {
-    console.log(operator)
+
     switch(operator) {
         case "+":
-            console.log("HERE");
+            
             add(num1,num2);
             break;
         case '-':
@@ -41,9 +43,14 @@ function operate(operator, num1, num2) {
 
 // Обновить дисплей после выполнения вычисления
 function refreshDisplay() {
-    display.innerText = lastResult;
     lastResultDisplay.innerText = displayValue  + " =";
-    displayValue = "";
+
+    displayValue = lastResult;
+
+    display.innerText = displayValue;
+    num1 = 0;
+    num2 = 0;
+    lastSymbol = "";
 }
 
 function updateDisplay() {
@@ -61,12 +68,14 @@ function handleClick(e) {
     lastSymbol = e.target.innerText;
     
     if (isNaN(lastSymbol)) {
-        console.log("Not a number");
+        //console.log("Not a number");
         if (lastSymbol == "=") {
-            console.log("operator: " + operator);
+            //console.log("operator: " + operator);
             operate(operator,num1,num2);
         }
         else {
+            if (lastResult != 0)
+                lastResultDisplay.innerText = "";
             operator = lastSymbol;
             lastSymbol = " " + operator + " ";
             updateDisplay();
@@ -75,15 +84,16 @@ function handleClick(e) {
         }
     }
     else {
-        console.log("Number");
+        //console.log("Number");
         if (operator == "" && lastResult == 0) {
             updateDisplay();
             num1 += lastSymbol;
             console.log("num1 " + num1);
         }
         else {
+            
             updateDisplay();
-            num2 = num2 + lastSymbol;
+            num2 += lastSymbol;
             console.log("num2 " + num2);
         }
 
