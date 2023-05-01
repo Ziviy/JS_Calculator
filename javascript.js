@@ -9,32 +9,45 @@ function add(num1, num2) {
 }
 
 function substract(num1, num2) {
-    return num1 - num2
+    if (lastResult != 0)
+        num1 = lastResult;
+    console.log("NUM1 is " + num1 + " NUM2 is " + num2);
+    lastResult = parseInt(num1) - parseInt(num2);
+    console.log("Dif is " + lastResult);
+    refreshDisplay();
 }
 
-function multiplt(num1, num2) {
-    return num1 * num2
+function multiply(num1, num2) {
+    if (lastResult != 0)
+        num1 = lastResult;
+    console.log("NUM1 is " + num1 + " NUM2 is " + num2);
+    lastResult = parseInt(num1) * parseInt(num2);
+    console.log("Prod is " + lastResult);
+    refreshDisplay();
 }
 
 function divide(num1, num2) {
-    return num1 / num2
+    if (lastResult != 0)
+        num1 = lastResult;
+    console.log("NUM1 is " + num1 + " NUM2 is " + num2);
+    lastResult = parseInt(num1) / parseInt(num2);
+    console.log("Quot is " + lastResult);
+    refreshDisplay();
 }
 
 function operate(operator, num1, num2) {
-
     switch(operator) {
         case "+":
-            
             add(num1,num2);
             break;
         case '-':
             substract(num1,num2);
             break;
-        case '*':
+        case 'x':
             multiply(num1,num2);
             break;
-        case '/':
-            multiply(num1,num2);
+        case '÷':
+           divide(num1,num2);
             break;
         default:
             console.log("ERROR");
@@ -53,8 +66,14 @@ function refreshDisplay() {
     lastSymbol = "";
 }
 
-function updateDisplay() {
-    displayValue += lastSymbol;
+function updateDisplay(flag) {
+    if (flag) {
+        let buff = displayValue;
+        displayValue = buff.slice(0,-1);
+    }
+    else {
+        displayValue += lastSymbol;
+    }
     display.innerText = displayValue;
 }
 
@@ -98,7 +117,14 @@ function handleClick(e) {
         }
 
     }
+
 }
+
+var deleteButton = document.querySelector(".delete-symbol");
+deleteButton.addEventListener("click", () => {
+    updateDisplay(1);
+});
+
 const display = document.querySelector(".typing");
 const lastResultDisplay = document.querySelector(".last-result")
 
