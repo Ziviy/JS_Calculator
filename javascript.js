@@ -55,12 +55,22 @@ function operate(operator, num1, num2) {
 }
 
 // Обновить дисплей после выполнения вычисления
-function refreshDisplay() {
-    lastResultDisplay.innerText = displayValue  + " =";
+function refreshDisplay(flag) {
 
-    displayValue = lastResult;
+    if (flag) {
+        lastResultDisplay.innerText = "";
+        display.innerText = "";
+        displayValue = "";
+        lastResult = 0;
+        operator = "";
+    }
+    else {
+        lastResultDisplay.innerText = displayValue  + " =";
+        displayValue = lastResult;
+        display.innerText = displayValue;
+    }
 
-    display.innerText = displayValue;
+
     num1 = 0;
     num2 = 0;
     lastSymbol = "";
@@ -86,11 +96,15 @@ let displayValue = "";
 function handleClick(e) {
     lastSymbol = e.target.innerText;
     
-    if (isNaN(lastSymbol)) {
+def : if (isNaN(lastSymbol)) {
         //console.log("Not a number");
         if (lastSymbol === "=") {
             //console.log("operator: " + operator);
             operate(operator,num1,num2);
+        }
+        else if (lastSymbol === "C") {
+            refreshDisplay(1);
+            break def;
         }
         else {
             if (lastResult !== 0)
@@ -120,15 +134,26 @@ function handleClick(e) {
 
 }
 
+// Кнопка "удалить"
 var deleteButton = document.querySelector(".delete-symbol");
 deleteButton.addEventListener("click", () => {
     updateDisplay(1);
 });
 
+// // Кнопка "удалить все"
+// var deleteAllButton = document.querySelector(".clear");
+// deleteAllButton.addEventListener("click", () => {
+//     refreshDisplay(1);
+// })
+
+
 const display = document.querySelector(".typing");
 const lastResultDisplay = document.querySelector(".last-result")
 
+
+// Кнопки с цифрами
 const buttons = document.querySelectorAll("button");
 buttons.forEach((element) => {
     element.addEventListener('click', handleClick);
 });
+
