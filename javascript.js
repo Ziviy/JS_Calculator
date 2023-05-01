@@ -1,5 +1,5 @@
 function add(num1, num2) {
-    if (lastResult != 0)
+    if (lastResult !== 0)
         num1 = lastResult;
     console.log("NUM1 is " + num1 + " NUM2 is " + num2);
     lastResult = parseInt(num1) + parseInt(num2);
@@ -9,7 +9,7 @@ function add(num1, num2) {
 }
 
 function substract(num1, num2) {
-    if (lastResult != 0)
+    if (lastResult !== 0)
         num1 = lastResult;
     console.log("NUM1 is " + num1 + " NUM2 is " + num2);
     lastResult = parseInt(num1) - parseInt(num2);
@@ -18,7 +18,7 @@ function substract(num1, num2) {
 }
 
 function multiply(num1, num2) {
-    if (lastResult != 0)
+    if (lastResult !== 0)
         num1 = lastResult;
     console.log("NUM1 is " + num1 + " NUM2 is " + num2);
     lastResult = parseInt(num1) * parseInt(num2);
@@ -27,7 +27,7 @@ function multiply(num1, num2) {
 }
 
 function divide(num1, num2) {
-    if (lastResult != 0)
+    if (lastResult !== 0)
         num1 = lastResult;
     console.log("NUM1 is " + num1 + " NUM2 is " + num2);
     lastResult = parseInt(num1) / parseInt(num2);
@@ -88,12 +88,12 @@ function handleClick(e) {
     
     if (isNaN(lastSymbol)) {
         //console.log("Not a number");
-        if (lastSymbol == "=") {
+        if (lastSymbol === "=") {
             //console.log("operator: " + operator);
             operate(operator,num1,num2);
         }
         else {
-            if (lastResult != 0)
+            if (lastResult !== 0)
                 lastResultDisplay.innerText = "";
             operator = lastSymbol;
             lastSymbol = " " + operator + " ";
@@ -104,7 +104,7 @@ function handleClick(e) {
     }
     else {
         //console.log("Number");
-        if (operator == "" && lastResult == 0) {
+        if (operator === "" && lastResult === 0) {
             updateDisplay();
             num1 += lastSymbol;
             console.log("num1 " + num1);
